@@ -2,9 +2,15 @@ import React from "react";
 import ReactDOM from "react-dom";
 import "./index.css";
 import App from "./App";
-setInterval(function() {
-  ReactDOM.render(
-    <h1>{new Date().toLocaleTimeString()}</h1>,
-    document.getElementById("root")
+function Cartoon(props) {
+  return <h1>hellO {props.name}</h1>;
+}
+function Show() {
+  return (
+    <div>
+      <Cartoon name="moto" show="patlo" />
+      <Cartoon name="ymma" show="john" />
+    </div>
   );
-}, 1000);
+}
+ReactDOM.render(<Show />, document.getElementById("root"));
