@@ -1,28 +1,23 @@
 import React from "react";
+
 import ReactDOM from "react-dom";
-import "./index.css";
-import App from "./App";
-class Clock extends React.Component {
+
+class Formset extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {
-      date: new Date()
-    };
-  }
-  componentDidMount() {
-    this.timer = setInterval(() => this.start(), 1000);
-  }
-  componentWillUnmount() {
-    clearInterval(this.timer);
-  }
-  start() {
-    this.setState({
-      date: new Date()
-    });
+    this.state = { value: "" };
   }
   render() {
-    return <h1> {this.state.date.toLocaleTimeString()}</h1>;
+    return (
+      <form>
+        <input
+          type="text"
+          value={this.state.value}
+          onChange={this.handleChange}
+        ></input>
+        <input type="submit" value="Go Ahead" />
+      </form>
+    );
   }
 }
-
-ReactDOM.render(<Clock />, document.getElementById("root"));
+ReactDOM.render(<Formset />, document.getElementById("root"));
